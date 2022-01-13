@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-// import { AuthService } from '../../services/auth.service';
-// import Swal from 'sweetalert2';
+import { AuthService } from '../../services/auth.service';
+
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -19,34 +20,34 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    // private authService : AuthService
+    private authService : AuthService
     ) { }
 
   ngOnInit(): void {
   }
 
-  // ingresarConGoogle(){
-  //   //console.log(this.usuario);
-  //   const { email, password } = this.usuario;
+  ingresarConGoogle(){
+    //console.log(this.usuario);
+    const { email, password } = this.usuario;
 
-  //   this.authService.loginWithGoogle( email, password ).then(res=>{
-  //     console.log("resultado de respuesta: " , res);
-  //     if ( res ) {
-  //       this.router.navigateByUrl("/order");
-  //     }
-  //     else{
-  //       this.authService.logout();
+    this.authService.loginWithGoogle( email, password ).then(res=>{
+      console.log("resultado de respuesta: " , res);
+      if ( res ) {
+        this.router.navigate(["/order"]);
+      }
+      else{
+        this.authService.logout();
 
-  //       // Swal.fire({
-  //       //   icon: 'error',
-  //       //   title: 'Error',
-  //       //   text: 'Debe ingresar un dominio valido como @vuela.bo',
-  //       // });
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Debe ingresar un dominio valido como @vuela.bo',
+        });
 
-  //       this.router.navigateByUrl("/login");
-  //     }
-  //   });
-  // }
+        this.router.navigateByUrl("/login");
+      }
+    });
+  }
 
   ngAfterViewInit() {
     document.getElementById('login').style.width = window.innerWidth.toString()+'px';

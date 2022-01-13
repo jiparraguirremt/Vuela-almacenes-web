@@ -15,6 +15,7 @@ import { AdministrationComponent } from './@presentation/pages/administration/ad
 
 /* ---------- */
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 
@@ -38,6 +39,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     FormsModule,
     ReactiveFormsModule,
+    AngularFireAuthModule
   ],
   providers: [ AngularFirestore ],
   bootstrap: [AppComponent]

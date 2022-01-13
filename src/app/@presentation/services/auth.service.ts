@@ -5,7 +5,8 @@ import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { AngularFireAuth } from '@angular/fire/auth';
-//import firebase from 'firebase/compat/app';
+import firebase from 'firebase/app';
+//import { auth } from 'firebase/app';
 //import { AngularFirestore } from '@angular/fire/compat/firestore';
 @Injectable({
   providedIn: 'root'
@@ -35,48 +36,48 @@ export class AuthService {
     }
   }
 
-  // async loginWithGoogle(email: string, password: string) {
-  //   try {
+  async loginWithGoogle(email: string, password: string) {
+    try {
 
-  //     //buscar dominio antes del login con modal de google
-  //     let respuesta = await this.afauth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-  //     let email_buscar = respuesta.user?.email;
+      //buscar dominio antes del login con modal de google
+      let respuesta = await this.afauth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+      let email_buscar = respuesta.user?.email;
 
-  //     // esta es la palabra a buscar
-  //     let termino = "@vuela.bo";
-  //     // para buscar la palabra hacemos
-  //     let posicion = email_buscar?.indexOf(termino);
-  //     if (posicion !== -1){
-  //     // si encuentra -1 significa que encontró el valor buscado en el correo
-  //     let NuevousuarioAntes = {
-  //       email: respuesta.user?.email,
-  //       password: password,
-  //       rol: "Bodeguero",
-  //       nombre: respuesta.user?.displayName,
-  //       estado: 1
-  //     }
-  //     let registro = await this.firestore.collection("usuarios").add(NuevousuarioAntes);
-  //     //actualizando registro agregando el id
-  //     let Nuevousuario = {
-  //       email: respuesta.user?.email,
-  //       password: password,
-  //       rol: "Bodeguero",
-  //       nombre: respuesta.user?.displayName,
-  //       estado: 1,
-  //       id: registro.id,
-  //       imagen_google: respuesta.user?.photoURL
-  //     }
-  //     this.firestore.collection("usuarios").doc(registro.id).set(Nuevousuario);
+      // esta es la palabra a buscar
+      let termino = "@vuela.bo";
+      // para buscar la palabra hacemos
+      let posicion = email_buscar?.indexOf(termino);
+      if (posicion !== -1){
+      // si encuentra -1 significa que encontró el valor buscado en el correo
+      let NuevousuarioAntes = {
+        email: respuesta.user?.email,
+        password: password,
+        rol: "Bodeguero",
+        nombre: respuesta.user?.displayName,
+        estado: 1
+      }
+      let registro = await this.firestore.collection("usuarios").add(NuevousuarioAntes);
+      //actualizando registro agregando el id
+      let Nuevousuario = {
+        email: respuesta.user?.email,
+        password: password,
+        rol: "Bodeguero",
+        nombre: respuesta.user?.displayName,
+        estado: 1,
+        id: registro.id,
+        imagen_google: respuesta.user?.photoURL
+      }
+      this.firestore.collection("usuarios").doc(registro.id).set(Nuevousuario);
 
-  //         return true;
-  //     }
-  //     else
-  //     return false;
-  //   } catch (err) {
-  //     console.log("error en login con google: ", err);
-  //     return null;
-  //   }
-  // }
+          return true;
+      }
+      else
+      return false;
+    } catch (err) {
+      console.log("error en login con google: ", err);
+      return null;
+    }
+  }
 
   async getAll(){
     try {

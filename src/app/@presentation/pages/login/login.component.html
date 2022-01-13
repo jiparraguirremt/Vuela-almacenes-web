@@ -10,7 +10,12 @@
                 <input type="password" class="input p-3 mt-4" placeholder="CONTRASEÑA">
             </div>
             <div class="container">
-                <button class="btn-login p-3 mt-4" (click)="login()">INGRESAR</button>
+                <!-- <button class="btn-login p-3 mt-4" (click)="login()">INGRESAR</button> -->
+                <button (click)="ingresarConGoogle()" class="btn btn-block mt-4" style="background-color: white; width: 22%;">
+                  <img src="https://1000marcas.net/wp-content/uploads/2020/02/logo-Google-640x360.png"
+                  width="40%" height="15%" style="cursor: pointer;"
+                  >
+                </button>
             </div>
         </div>
         <div>

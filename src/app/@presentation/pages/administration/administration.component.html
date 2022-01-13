@@ -1,5 +1,5 @@
 <div class="page" id="page" *ngIf="!showRegister && !showDetail">
-    
+
     <div class="col-12 page-content" >
         <div class="col-12">
             <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
@@ -11,10 +11,10 @@
                         </div>
                     </div>
                     <div class="modal-body">
-                      <button class="btn btn-solicitud" data-dismiss="modal" data-toggle="modal" data-target="#modal-solicitud" >Crear con solicitud (1) 
+                      <button class="btn btn-solicitud" data-dismiss="modal" data-toggle="modal" data-target="#modal-solicitud" >Crear con solicitud (1)
                         <i class="bi bi-chevron-right i-modal"></i>
                       </button>
-                      <button class="btn-sin-solicitud" (click)="showRegister = true;sizeRegister()" data-dismiss="modal">Crear sin solicitud 
+                      <button class="btn-sin-solicitud" (click)="showRegister = true;sizeRegister()" data-dismiss="modal">Crear sin solicitud
                         <i class="bi bi-chevron-right i-modal"></i>
                       </button>
                       <div class="divider-modal"></div>
@@ -42,32 +42,32 @@
                             <h4 class="text-option">
                             <label for="id1" class="radio-inline">
                             Marbelle Flores
-                            </label> 
-                            <input type="radio" class="radio-option" name="optradio" id="id1"> 
+                            </label>
+                            <input type="radio" class="radio-option" name="optradio" id="id1">
                             </h4>
                         </div>
                         <div class="col-12 text-center option-modal">
                             <h4 class="text-option">
                             <label for="id1" class="radio-inline">
                             Marcos Torres
-                            </label> 
-                            <input type="radio" class="radio-option" name="optradio" id="id1"> 
+                            </label>
+                            <input type="radio" class="radio-option" name="optradio" id="id1">
                             </h4>
                         </div>
                         <div class="col-12 text-center option-modal">
                             <h4 class="text-option">
                             <label for="id1" class="radio-inline">
                             Mariluz Castillo
-                            </label> 
-                            <input type="radio" class="radio-option" name="optradio" id="id1"> 
+                            </label>
+                            <input type="radio" class="radio-option" name="optradio" id="id1">
                             </h4>
                         </div>
                         <div class="col-12 text-center option-modal">
                             <h4 class="text-option">
                             <label for="id1" class="radio-inline">
                             Mar Helena Mosquera
-                            </label> 
-                            <input type="radio" class="radio-option" name="optradio" id="id1"> 
+                            </label>
+                            <input type="radio" class="radio-option" name="optradio" id="id1">
                             </h4>
                         </div>
                       </div>
@@ -88,7 +88,7 @@
                 </div>
               </div>
 
-              
+
               <div class="modal fade" id="modal-estado" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
@@ -117,16 +117,16 @@
                             <h4 class="text-option">
                                 <label for="id1" class="radio-inline">
                                 Activo
-                                </label> 
-                                <input type="radio" class="radio-option" name="optradio" id="id1"> 
+                                </label>
+                                <input type="radio" class="radio-option" name="optradio" id="id1">
                                 </h4>
                         </div>
                         <div class="col-3 check-modal mt-2">
                             <h4 class="text-option">
                                 <label for="id1" class="radio-inline">
                                 Suspendido
-                                </label> 
-                                <input type="radio" class="radio-option" name="optradio" id="id1"> 
+                                </label>
+                                <input type="radio" class="radio-option" name="optradio" id="id1">
                                 </h4>
                         </div>
                       </div>
@@ -175,16 +175,16 @@
                             <h4 class="text-option">
                                 <label for="id1" class="radio-inline">
                                 Activo
-                                </label> 
-                                <input type="radio" class="radio-option" name="optradio" id="id1"> 
+                                </label>
+                                <input type="radio" class="radio-option" name="optradio" id="id1">
                                 </h4>
                         </div>
                         <div class="col-3 check-modal mt-2">
                             <h4 class="text-option">
                                 <label for="id1" class="radio-inline">
                                 Suspendido
-                                </label> 
-                                <input type="radio" class="radio-option" name="optradio" id="id1"> 
+                                </label>
+                                <input type="radio" class="radio-option" name="optradio" id="id1">
                                 </h4>
                         </div>
                       </div>
@@ -219,10 +219,10 @@
                 <div class="row">
                     <!-- <p  class="title-body">Listado de órdenes de compra</p> -->
                     <!-- <button class="btn btn-usuarios" data-toggle="modal" data-target="#modal">+ Crear usuario</button> -->
-                    
-                    
+
+
                     <div class="col-3 p-0">
-                        <input type="text" class="form-control input-search" id="search" placeholder="Buscar nombre">  
+                        <input type="text" class="form-control input-search" id="search" placeholder="Buscar nombre">
                     </div>
                     <div class="col-3 p-0 mt-1">
                         <i class="bi bi-funnel-fill ml-20 i-filter"></i>
@@ -231,7 +231,7 @@
                     <!-- <div class="col-6 p-0">
                         <button class="btn btn-crear-orden" data-toggle="modal" data-target="#modal">Crear orden de compra</button>
                     </div> -->
-                    
+
                     <div class="col-12 table-scroll mt-3" id="table-user">
                         <table class="table table-bordered">
                             <thead>
@@ -240,29 +240,39 @@
                                     <th>Nombre</th>
                                     <th>Correo electrónico</th>
                                     <th>Roles</th>
-                                   
+
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let i of row">
-                                    <td class="cell-active">Activo
-                                        <img class="i-edit" src="assets/images/icon edit.svg" alt=""></td>
+                                <tr *ngFor="let usuario of listaDeUsuarios">
+                                    <!-- <td class="cell-active">Activo
+                                        <img class="i-edit" src="assets/images/icon edit.svg" alt=""></td> -->
+                                    <td *ngIf="usuario.estado ==1" style="background-color: #D96B2B; cursor: pointer;">
+
+                                      <a *ngIf="usuario.estado ==1" style="color: white;" (click)="cambiarEstado(usuario.id, usuario)">
+                                        Activo </a>
+                                    </td>
+
+                                    <td *ngIf="usuario.estado == 0" style="background-color: #8C8C8C; cursor: pointer;">
+                                        <a style="color: white;" (click)="cambiarEstado(usuario.id, usuario)">
+                                          Inactivo </a>
+                                    </td>
                                     <td class="cell">
                                         <div class="row">
                                             <div class="col-2">
-                                                <img class="image-user " src="assets/images/Foto3.png" alt="">
+                                                <img style="border-radius: 50%;" [src]="usuario.imagen_google" width="30" height="30">
                                             </div>
                                             <div class="col-10 p-0">
-                                                <p class="txt-name">Leonardo Rafael Quispe Pacheco</p>
+                                                <p class="txt-name"> {{ usuario.nombre }}</p>
                                                 <p class="txt-area">Área de logística</p>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="cell">rmurillo@vuela.bo</td>
+                                    <td class="cell"> {{ usuario.email }} </td>
                                     <!-- <td class="cell " data-toggle="modal" data-target="#modal-estado"> <div class="col-2 p-0">
                                       <div class="dropdown-table">
                                             <button class="input dropdown-toggle-filter" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                              Enviado <svg style="fill:white" class="i-row" xmlns="http://www.w3.org/2000/svg" width="20.741" height="10.519" viewBox="0 0 20.741 14.519"><path d="M6.41,9H17.59a1,1,0,0,1,.7,1.71l-5.58,5.58a1,1,0,0,1-1.42,0L5.71,10.71A1,1,0,0,1,6.41,9Z"/></svg> 
+                                              Enviado <svg style="fill:white" class="i-row" xmlns="http://www.w3.org/2000/svg" width="20.741" height="10.519" viewBox="0 0 20.741 14.519"><path d="M6.41,9H17.59a1,1,0,0,1,.7,1.71l-5.58,5.58a1,1,0,0,1-1.42,0L5.71,10.71A1,1,0,0,1,6.41,9Z"/></svg>
                                             </button>
                                             <div class="dropdown-menu menu-filtros" aria-labelledby="dropdownMenuButton">
                                                 <div class="row">
@@ -300,12 +310,12 @@
                                     <td class="cell-active"><i class="bi bi-file-earmark-fill i-file"></i></td> -->
 
 
-                                   
+
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                            
+
                 </div>
             </div>
         </div>
@@ -343,7 +353,7 @@
                         <img class="i-detail" src="assets/images/Icon awesome-user-circle.svg">
                         <p class="title-detail"> Información del administrador</p>
                     </div>
-    
+
                     <div class="col-12 mt-3">
                         <table class="table table-bordered">
                             <tbody>
@@ -391,8 +401,8 @@
                         <img class="i-detail" src="assets/images/Grupo 308.svg" alt="">
                         <p class="title-detail">Dirección</p>
                     </div>
-                    
-    
+
+
                     <div class="col-12 mt-3">
                         <table class="table table-bordered">
                             <tbody>
@@ -478,7 +488,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
 
@@ -555,7 +565,7 @@
                         <img class="i-detail" src="assets/images/Icon awesome-user-circle.svg">
                         <p class="title-detail"> Información del administrador</p>
                     </div>
-    
+
                     <div class="col-12 mt-3">
                         <table class="table table-bordered">
                             <tbody>
@@ -603,8 +613,8 @@
                         <img class="i-detail" src="assets/images/Grupo 308.svg" alt="">
                         <p class="title-detail">Dirección</p>
                     </div>
-                    
-    
+
+
                     <div class="col-12 mt-3">
                         <table class="table table-bordered">
                             <tbody>
@@ -690,7 +700,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
 

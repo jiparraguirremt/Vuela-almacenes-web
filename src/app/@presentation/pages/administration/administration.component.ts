@@ -4,6 +4,10 @@ import { NgModule } from '@angular/core';
 import { Router } from '@angular/router';
 // import { AngularEditorConfig } from '@kolkov/angular-editor';
 
+/*-----------*/
+import { AngularFirestore } from '@angular/fire/firestore';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-administration',
   templateUrl: './administration.component.html',
@@ -15,14 +19,55 @@ export class AdministrationComponent implements OnInit {
   showDetail:boolean = false;
   row = [];
   rowCamera = [];
-  
 
-  constructor(private router: Router) {}
+  /* ---------- */
+  rolForm!: FormGroup;
+
+  listaDeUsuarios: any = [];
+  ListaDeRoles: any = [
+    {
+      rol: 'Bodeguero'
+    },
+    {
+      rol: 'Logistico'
+    },
+    {
+      rol: 'Administrador'
+    }
+  ]
+
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private authService : AuthService
+    ) {}
 
   ngOnInit(): void {
-    this.row.length = 20;
+    //this.row.length = 20;
     this.rowCamera.length = 4;
+    this.authService.getAll().then( firebaseResponse =>{
+      firebaseResponse?.subscribe(listaDeUsuarioRef =>{
+
+        this.listaDeUsuarios = listaDeUsuarioRef.map((usuarioRef: any) =>{
+          let usuario: any = usuarioRef.payload.doc.data();
+          usuario['id'] = usuarioRef.payload.doc.id;
+          //console.log(usuario);
+          return usuario;
+        });
+
+      });
+    });
+
+    this.rolForm = this.fb.group({
+      role: ['', Validators.required],
+    });
   }
+
+  cambiarEstado(id: any, data: any){
+    //console.log(id);
+    this.authService.cambiarEstado(id, data);
+  }
+
   ngAfterViewInit() {
     let hide = localStorage.getItem('hide');
     if(hide=='true'){
@@ -65,7 +110,7 @@ export class AdministrationComponent implements OnInit {
   closeSlider(){
     document.getElementById('slide').style.display = 'none';
   }
-  
+
   openSlider(){
     document.getElementById('slide').style.display = 'block';
   }

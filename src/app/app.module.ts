@@ -13,6 +13,12 @@ import { OrderComponent } from './@presentation/pages/order/order.component';
 import { AuthorizationComponent } from './@presentation/pages/authorization/authorization.component';
 import { AdministrationComponent } from './@presentation/pages/administration/administration.component';
 
+/* ---------- */
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { environment } from 'src/environments/environment';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,9 +34,12 @@ import { AdministrationComponent } from './@presentation/pages/administration/ad
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    // AngularEditorModule
+    // AngularEditorModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [ AngularFirestore ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
